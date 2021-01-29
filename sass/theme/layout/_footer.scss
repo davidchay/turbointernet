@@ -1,0 +1,16 @@
+#wrapper-footer {
+    background-color: $primary-dark;
+    color: $gray-100;
+
+    .site-info {
+        a {
+            //color: lighten( $primary, 15%);
+            //color: $secondary;
+        
+            &:hover {
+                text-decoration: none;
+                color: $gray-100;
+            }
+        } 
+    }
+}

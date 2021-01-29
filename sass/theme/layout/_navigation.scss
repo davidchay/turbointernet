@@ -1,0 +1,52 @@
+/*
+Navegacion principal
+*/
+.navbar {
+    .navbar-nav {
+        .menu-item {
+            margin-right: 25px;
+            &:last-child {
+                margin-right: 0;
+            }
+            
+            &.mi-cuenta {
+                .nav-link{
+                    content: none;
+                    
+                    
+                    &::before{
+                        content: "n";
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        background-color: red;
+                    }
+                }
+            }
+
+            .nav-link {
+                color: $black;
+                letter-spacing: 1px;
+        
+                &:hover {
+                    color: $primary;
+                }
+                
+            }
+        }
+    }
+}
+
+
+/*
+Paginacion blog
+*/
+.blog {
+    .pagination {
+        .page-item:first-child .page-link,
+        .page-item:last-child .page-link {
+            border-radius: 0;
+        }
+    }
+}
+

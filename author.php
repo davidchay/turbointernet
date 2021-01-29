@@ -34,14 +34,20 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$curauth = get_userdata( intval( $author ) );
 					}
 					?>
+					
+					<div class="d-flex align-items-center mb-5">
+							<?php
+							if ( ! empty( $curauth->ID ) ) {
+								echo get_avatar( $curauth->ID );
+							}
+							?>
+							<h1 class="ml-3">
+								<?php echo esc_html__( '', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>
+							</h1>
+					</div>
+					
 
-					<h1><?php echo esc_html__( 'About:', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?></h1>
-
-					<?php
-					if ( ! empty( $curauth->ID ) ) {
-						echo get_avatar( $curauth->ID );
-					}
-					?>
+					
 
 					<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 						<dl>
@@ -59,7 +65,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</dl>
 					<?php endif; ?>
 
-					<h2><?php echo esc_html__( 'Posts by', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>
+					<!--<h2><?php echo esc_html__( 'Posts by', 'understrap' ) . ' ' . esc_html( $curauth->nickname ); ?>:</h2>-->
 
 				</header><!-- .page-header -->
 					<!-- The Loop -->
@@ -70,7 +76,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							the_post();
 							echo '<li>';
 								printf(
-									'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
+									'<h2><a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a></h2>',
 									esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
 									esc_attr( __( 'Permanent Link:', 'understrap' ) ),
 									get_the_title()

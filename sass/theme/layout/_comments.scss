@@ -1,0 +1,58 @@
+.comments-area {
+    margin-top: 3em;
+    .comments-content {
+        background-color: $white;
+        padding: 3em 3.5em;
+        margin-bottom: 3em;
+
+        .comments-title {
+            margin-bottom: 2em;
+        }
+
+        .comment-list {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+            overflow: hidden;
+            
+            .comment {
+                margin-bottom: 2em;
+                
+                .comment-body {
+                    .comment-meta{
+                        margin-bottom: 1em;
+                        .comment-author {
+                            .avatar {
+                                border-radius: 50%;
+                                width: 42px;
+                                //transform: scale(1.5);
+                            }
+                            .fn a {
+                                color: $black;
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                        .comment-meta {
+
+                        }
+                    }
+                    .comment-content {
+                        overflow-y: hidden;
+                    }
+                    .reply {
+                        text-align: right;
+                    }
+                }
+                ol {
+                    list-style: none;
+                    margin:1em 0;
+                    border-left: 1px solid $gray-300;
+                }
+            }
+    
+        }
+    }
+    
+}

@@ -25,9 +25,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<footer class="site-footer" id="colophon">
 
-					<div class="site-info">
+					<div class="site-info text-center">
 
-						<?php understrap_site_info(); ?>
+						<?php //understrap_site_info(); ?>
+						Copyright &copy; <?php  echo date('Y');?> <a href="<?php bloginfo('url'); ?>"> <?php bloginfo('name'); ?> </a> - Todos los derechos reservados.
 
 					</div><!-- .site-info -->
 

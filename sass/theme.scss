@@ -5,7 +5,35 @@
 
 // Optional files - If you dont use the corresponding scripts/fonts comment em out
 @import "assets/font-awesome";    // <-------- Font Awesome Icon font
+@import "assets/fonts/roboto";    // <-------- Font roboto
+@import "assets/fonts/nunito";    // <-------- Font nunito
 
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
 @import "theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
+
+/*@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+*/
+
+@import "theme/base/typography";
+
+@import "theme/layout/navigation";
+@import "theme/layout/grid";
+@import "theme/layout/header";
+@import "theme/layout/footer";
+@import "theme/layout/sidebar";
+@import "theme/layout/forms";
+@import "theme/layout/comments";
+
+@import "theme/components/buttons";
+@import "theme/components/carousel";
+@import "theme/components/cover";
+@import "theme/components/dropdown";
+
+@import "theme/pages/home";
+@import "theme/pages/blog";
+@import "theme/pages/author";
+@import "theme/pages/contact";

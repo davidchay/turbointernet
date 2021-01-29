@@ -1,0 +1,53 @@
+/*
+    Top info
+*/
+
+#top-info {
+    background-color: $gray-900;
+    background-color: $primary;
+    color:  $gray-100;
+    font-size: 14px;
+    .wrapper {
+        padding: 10px 0;
+
+        .topinfo-widget {
+            display: inline-block;
+            margin-right: 10px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .widget-title {
+                font-size: 14px;
+                display: inline-block;
+                margin-right: 7px;
+            }
+    
+            .textwidget {
+                display: inline-block;
+            }
+
+            .menu {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin-bottom: 0;
+                .menu-item {
+                    margin-right: 15px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+
+                    a {
+                        color: $gray-100;
+                    }
+                }
+
+            }
+
+        }
+        
+    }
+}

@@ -1,0 +1,26 @@
+.navbar {
+    .navbar-toggler {
+        border-radius: 0 ;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 300;
+        color: $primary;
+        background-color: $white ;
+        border: 1px solid $primary;
+        padding: 7px 14px;
+        font-size: 16px;
+        transition: all .2s ease-in-out;
+
+        &:hover,
+        &:active {
+            color: $white;
+            background-color: $primary ;
+
+        }
+        &:focus {
+            outline-color: lighten($primary, 10%);
+            //color: $white;
+        }
+       
+    }
+}

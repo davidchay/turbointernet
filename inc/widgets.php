@@ -170,5 +170,29 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 			)
 		);
 
+		register_sidebar(
+			array(
+				'name'          => __( 'Top info left', 'understrap' ),
+				'id'            => 'topinfo-left',
+				'description'   => __( 'Añade informacion en la barra superior izquierdo', 'understrap' ),
+				'before_widget' => '<div id="%1$s" class="topinfo-widget %2$s">',
+				'after_widget'  => '</div><!-- .footer-widget -->',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'name'          => __( 'Top info right', 'understrap' ),
+				'id'            => 'topinfo-right',
+				'description'   => __( 'Añade informacion en la barra superior derecha', 'understrap' ),
+				'before_widget' => '<div id="%1$s" class="topinfo-widget %2$s dynamic-classes">',
+				'after_widget'  => '</div><!-- .footer-widget -->',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
+
 	}
 } // End of function_exists( 'understrap_widgets_init' ).
