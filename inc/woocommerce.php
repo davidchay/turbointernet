@@ -42,8 +42,8 @@ if ( ! function_exists( 'understrap_woocommerce_wrapper_start' ) ) {
 		$container = get_theme_mod( 'understrap_container_type' );
 		echo '<div class="wrapper" id="woocommerce-wrapper">';
 		echo '<div class="' . esc_attr( $container ) . '" id="content" tabindex="-1">';
-		//echo '<div class="row">';
-		//get_template_part( 'global-templates/left-sidebar-check' );
+		echo '<div class="row">';
+		get_template_part( 'global-templates/left-sidebar-check' );
 		echo '<main class="site-main" id="main">';
 	}
 }
@@ -54,12 +54,18 @@ if ( ! function_exists( 'understrap_woocommerce_wrapper_end' ) ) {
 	 */
 	function understrap_woocommerce_wrapper_end() {
 		echo '</main><!-- #main -->';
-		//get_template_part( 'global-templates/right-sidebar-check' );
-		//echo '</div><!-- .row -->';
+		if(!is_product()){
+			get_template_part( 'sidebar-templates/sidebar-tienda' );
+		}
+		
+		echo '</div><!-- .row -->';
 		echo '</div><!-- Container end -->';
 		echo '</div><!-- Wrapper end -->';
 	}
 }
+
+add_filter( 'loop_shop_columns', 'woocommerce_custom_loop_shop_columns', 20 );
+   function woocommerce_custom_loop_shop_columns( $cols ) { return 3; }
 
 if ( ! function_exists( 'understrap_wc_form_field_args' ) ) {
 	/**
@@ -169,13 +175,63 @@ if ( ! is_admin() && ! function_exists( 'wc_review_ratings_enabled' ) ) {
 }
 
 add_filter( 'woocommerce_add_to_cart_fragments', 'wc_refresh_mini_cart_count');
-function wc_refresh_mini_cart_count($fragments){
+function wc_refresh_mini_cart_count($fragments) {
+    ob_start();
+	global $woocommerce;
+    ?>
+     
+	<span id="mini-cart-count" class="badge badge-secondary rounded-circle" >
+        
+		<?php echo $woocommerce->cart->cart_contents_count; ?>
+	</span>
+	
+	
+    <?php
+    $fragments['#mini-cart-count'] = ob_get_clean();
+	return $fragments;
+}
+
+
+
+
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'wc_refresh_mini_cart');
+function wc_refresh_mini_cart($fragments) {
+
     ob_start();
     ?>
-    <div id="mini-cart-count">
-        <?php echo WC()->cart->get_cart_contents_count(); ?>
+
+    <div id="header-quickcart">
+		
+        <?php woocommerce_mini_cart(); ?>
     </div>
-    <?php
-        $fragments['#mini-cart-count'] = ob_get_clean();
+
+    <?php 
+	$fragments['#header-quickcart'] = ob_get_clean();
+
     return $fragments;
+
 }
+
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+function custom_override_checkout_fields( $fields ) {
+
+	
+	unset($fields['billing']['billing_city']);
+	unset($fields['billing']['billing_postcode']);
+	unset($fields['billing']['billing_country']);
+	unset($fields['billing']['billing_state']);
+
+	
+	return $fields;
+
+}
+
+
+add_filter('gettext', 'translate_text');
+function translate_text($translated) {
+ $translated = str_ireplace('Detalles de facturación', 'Detalles de pedido', $translated);
+ return $translated;
+}
+

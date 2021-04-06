@@ -5,8 +5,9 @@
     .site-info {
         a {
             //color: lighten( $primary, 15%);
-            //color: $secondary;
-        
+            color: $gray-100;
+            font-weight: 700;
+
             &:hover {
                 text-decoration: none;
                 color: $gray-100;

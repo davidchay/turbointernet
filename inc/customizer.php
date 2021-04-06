@@ -151,3 +151,118 @@ if ( ! function_exists( 'understrap_customize_preview_js' ) ) {
 	}
 }
 add_action( 'customize_preview_init', 'understrap_customize_preview_js' );
+
+
+/*
+* Customizer boton de whastapp para realizar pedido en productos de woocomerce
+*/
+if ( ! function_exists( 'understrap_btn_whatsapp_customize_register' ) ) {
+	/**
+	 * Register individual settings through customizer's API.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer reference.
+	 */
+
+	function understrap_btn_whatsapp_customize_register( $wp_customize ) {
+		
+		//  layout settings.
+		$wp_customize->add_section(
+			'understrap_btn_whatsapp_options',
+			array(
+				'title'       => __( 'Botón WhatsApp', 'understrap' ),
+				'capability'  => 'edit_theme_options',
+				'description' => __( 'Este botón de WhatsApp aparece en la página de cada producto y es para hacer el pedido', 'understrap' ),
+				'priority'    => 160,
+			)
+		);
+
+		/**
+		 * Telefono de whatsapp
+		 */
+		$wp_customize->add_setting(
+			'understrap_whatsapp_tel',
+			array(
+				'default'           => '+529621767466',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'understrap_whatsapp_tel',
+				array(
+					'label'       => __( 'Numero de teléfono', 'understrap' ),
+					'description' => __( 'Ingrese el número de teléfono con WhatsApp en donde se realizan pedidos', 'understrap' ),
+					'section'     => 'understrap_btn_whatsapp_options',
+					'settings'    => 'understrap_whatsapp_tel',
+					'type'        => 'text',
+					'priority'    =>  10 ,
+				)
+			)
+		);
+		/*
+		Texto del botón
+		*/ 
+
+		$wp_customize->add_setting(
+			'understrap_whatsapp_cta',
+			array(
+				'default'           => 'Pídelo ahora',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'understrap_whatsapp_cta',
+				array(
+					'label'             => __( 'Llamado a la acción', 'understrap' ),
+					'description'       => __( 'Agregue el texto del botón', 'understrap' ),
+					'section'           => 'understrap_btn_whatsapp_options',
+					'settings'          => 'understrap_whatsapp_cta',
+					'type'              => 'text',
+					'sanitize_callback' => 'sanitize_text_field',
+					'priority'          => 20,
+				)
+			)
+		);
+		/*
+		* Mensaje de whatsapp
+		*/ 
+		$wp_customize->add_setting(
+			'understrap_whatsapp_msg',
+			array(
+				'default'           => '¡Hola Turbointernet!. Quiero hacer un pedido de {title}, {url}',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_textarea_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'understrap_whatsapp_msg',
+				array(
+					'label'             => __( 'Texto del mensaje ', 'understrap' ),
+					'description'       => __( 'Agregue el texto del mensaje inicial para hacer el pedido. Agregue las variables {url}, {title} para reemplazar con la URL de la página web actual, el título de la publicación ', 'understrap' ),
+					'section'           => 'understrap_btn_whatsapp_options',
+					'settings'          => 'understrap_whatsapp_msg',
+					'type'              => 'textarea',
+					'sanitize_callback' => 'sanitize_textarea_field',
+					'priority'          => 20,
+				)
+			)
+		);
+
+	}
+	
+} // End of if function_exists( 'understrap_theme_customize_register' ).
+add_action( 'customize_register', 'understrap_btn_whatsapp_customize_register' );

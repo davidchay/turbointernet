@@ -7022,6 +7022,81 @@
     value: true
   });
 });
+/* 
+ 	3. Init Header Search
+ 	*/
+const search = document.querySelector('.searchBTN');
+const HSC = document.querySelector('.header_search_container');
+const closeSH = document.querySelector('#close_search_header');
+search.addEventListener("click", e => {
+  e.preventDefault();
+  HSC.classList.toggle('active');
+});
+closeSH.addEventListener("click", e => {
+  e.preventDefault();
+  HSC.classList.remove("active");
+});
+const dropdownMinicart = document.getElementById('dropdownMenuMiniCart');
+const miniCartWrapper = document.querySelector('.mini-cart-wrapper');
+let navbarH = document.querySelector(".navbar").offsetHeight;
+let coords = miniCartWrapper.getBoundingClientRect();
+
+if (window.screen.width < 576) {
+  dropdownMinicart.style.left = '-' + coords.left + 'px';
+  dropdownMinicart.style.width = '100vw';
+  dropdownMinicart.style.marginTop = navbarH - coords.bottom - 2 + "px";
+}
+
+window.addEventListener("resize", () => {
+  if (window.screen.width < 576) {
+    coords = miniCartWrapper.getBoundingClientRect();
+    dropdownMinicart.style.left = '-' + coords.left + 'px';
+    dropdownMinicart.style.width = '100vw';
+    dropdownMinicart.style.marginTop = navbarH - coords.bottom - 2 + "px";
+  } else {
+    dropdownMinicart.style.left = 'auto';
+    dropdownMinicart.style.width = '300px';
+    dropdownMinicart.style.marginTop = '0px';
+  }
+});
+const body = document.body;
+let navbarH = document.querySelector(".navbar").offsetHeight;
+const scrollUp = "scroll-up";
+const scrollDown = "scroll-down";
+let lastScroll = 0;
+body.style.paddingTop = navbarH + "px";
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset; //if (currentScroll == 0) {
+
+  if (currentScroll < 110) {
+    body.classList.remove(scrollUp);
+    return;
+  }
+
+  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+    // down
+    body.classList.remove(scrollUp);
+    body.classList.add(scrollDown);
+    dropdownMinicart.classList.remove("show");
+    HSC.classList.remove("active");
+  } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+    // up
+    body.classList.remove(scrollDown);
+    body.classList.add(scrollUp);
+  }
+
+  lastScroll = currentScroll;
+});
+window.addEventListener("resize", () => {
+  navbarH = document.querySelector(".navbar").offsetHeight;
+  const mainMenu = document.querySelector("#main-menu").offsetHeight;
+
+  if (mainMenu > 190) {
+    navbarH = navbarH - mainMenu;
+  }
+
+  body.style.paddingTop = navbarH + "px";
+});
 /**
  * File skip-link-focus-fix.js.
  *

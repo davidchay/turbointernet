@@ -1,0 +1,25 @@
+#tienda-sidebar{
+   
+    .widget{
+        padding:1rem;
+        background: $white;
+        border: 1px solid $gray-200;
+        margin-bottom: 2em;
+
+        .widget-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            border-bottom: 1px solid $gray-200;
+        }
+    
+    }
+}
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+    background-color: #001127;
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range  {
+    background-color: $primary;
+}

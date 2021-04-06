@@ -8,6 +8,8 @@
 @import "assets/fonts/roboto";    // <-------- Font roboto
 @import "assets/fonts/nunito";    // <-------- Font nunito
 
+@import "theme/vendor/svg-icons";
+
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
 @import "theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
@@ -25,6 +27,7 @@
 @import "theme/layout/header";
 @import "theme/layout/footer";
 @import "theme/layout/sidebar";
+@import "theme/layout/sidebar-tienda";
 @import "theme/layout/forms";
 @import "theme/layout/comments";
 
@@ -35,5 +38,8 @@
 
 @import "theme/pages/home";
 @import "theme/pages/blog";
+@import "theme/pages/page";
+
 @import "theme/pages/author";
 @import "theme/pages/contact";
+

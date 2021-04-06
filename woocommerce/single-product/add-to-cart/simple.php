@@ -15,6 +15,10 @@
  * @version 3.6.1
  */
 
+$tel = get_theme_mod( 'understrap_whatsapp_tel' );
+$cta = get_theme_mod( 'understrap_whatsapp_cta' );
+$msg = get_theme_mod( 'understrap_whatsapp_msg' );
+
 defined( 'ABSPATH' ) || exit;
 
 global $product;
@@ -28,7 +32,7 @@ echo wc_get_stock_html( $product ); // phpcs:ignore WordPress.Security.EscapeOut
 if ( $product->is_in_stock() ) : ?>
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
-
+	
 	<form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
@@ -47,9 +51,19 @@ if ( $product->is_in_stock() ) : ?>
 		?>
 
 		<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button "><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-
+				
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+
+		
 	</form>
+
+	<div>
+		<?php echo do_shortcode( '[btn_whatsapp cta="'.$cta.'" tel="'.$tel.'" msg="'.$msg.'" class="btn-lg"]' ); ?>
+	</div>
+	
+	
+ 
+
 
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 

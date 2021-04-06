@@ -105,3 +105,93 @@ Sidebar footerfull
         }
     }
 }
+
+
+#menu-cuenta-carrito {
+        width: 115px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    
+        li {
+            display: inline-block;
+            margin-left: 12px;
+            
+            img {
+                width: 22px;
+            }
+
+            &.mini-cart-wrapper{
+                a {
+                    position: relative;
+                    #mini-cart-count {
+                        position: absolute;
+                        top: -7px;
+                        right: -7px;
+                    }
+                }
+                .dropdown-menu {
+                    
+                        left: auto;
+                        right: 0;
+                        box-sizing: border-box;
+                        padding: 5px 7px;
+                        width: 300px;
+                    
+
+                    #header-quickcart {
+                        
+                        ul.woocommerce-mini-cart{
+                            li.woocommerce-mini-cart-item{
+                                padding-left: 2em;
+                                position: relative;
+                                padding-top: 0;
+                                display: block;
+                                width: 100%;
+                                margin: 0;
+					            
+                                a.remove_from_cart_button {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+
+                                } 
+                                a {
+                                    display: block;
+                                    font-weight: 700;
+                                    position: relative;
+                                    
+                                    img.attachment-woocommerce_thumbnail {
+                                        float: right;
+                                        margin-left: 4px;
+                                        width: 32px;
+                                        height: auto;
+                                        box-shadow: none;
+                                    }
+                                }
+                            
+                                span.quantity {
+                                    display: block;
+                                    
+                                }				
+                            
+                            } //woocommerce-mini-cart-item
+
+                           
+
+                        } //.woocommerce-mini-cart
+                        .woocommerce-mini-cart__total{
+                            margin-top: 1rem;
+                            border-top: 1px solid $gray-200;
+                            padding-top: 1rem;
+                        } //woocommerce-mini-cart__total
+                        .woocommerce-mini-cart__buttons {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+					
+                    } //#header-quickcart
+                } //.dropdown-menu
+            } //.mini-cart-wrapper 
+        } //li
+} //menu-cuenta-carrito

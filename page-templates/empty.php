@@ -13,6 +13,10 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+if ( is_front_page() ) {
+	get_template_part( 'global-templates/hero' );
+}
+
 while ( have_posts() ) :
 	the_post();
 	get_template_part( 'loop-templates/content', 'empty' );

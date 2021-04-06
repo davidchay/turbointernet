@@ -56,6 +56,18 @@ figure.woocommerce-product-gallery__wrapper {
 						background-color: $primary-dark;
 					}
 				}
+
+				.added_to_cart {
+					background: $secondary;
+					padding: $input-btn-padding-y $input-btn-padding-x;
+					color: $white;
+					display: block;
+					margin: .5rem 0;
+					&:hover {
+						background-color: darken($secondary, 5%);
+						color: $white;
+					}
+				}
 			} //add-to-cart-container
 
 			
@@ -73,8 +85,12 @@ figure.woocommerce-product-gallery__wrapper {
 		.summary {
 			
 			.price {
-				font-size: 1.5em;
-				color: $black;
+				font-size: 2.1em;
+				color: $primary;
+				font-weight: 700;
+				del {
+					font-style: italic;
+				}
 			}
 			.cart {
 				input[type=number] {
@@ -91,6 +107,11 @@ figure.woocommerce-product-gallery__wrapper {
 					}
 				}
 
+			}
+			.product_meta {
+				.tagged_as {
+					display: none;
+				}
 			}
 		} //summary
 		.woocommerce-tabs {

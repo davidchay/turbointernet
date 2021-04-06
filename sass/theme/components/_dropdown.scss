@@ -14,11 +14,12 @@
         &:hover,
         &:active {
             color: $white;
-            background-color: $primary ;
+            background-color: $secondary ;
+            border-color: $secondary;
 
         }
         &:focus {
-            outline-color: lighten($primary, 10%);
+            outline-color: lighten($secondary, 10%);
             //color: $white;
         }
        

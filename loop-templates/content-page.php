@@ -12,7 +12,13 @@ defined( 'ABSPATH' ) || exit;
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
-
+		<?php
+			if ( !is_home() && !is_front_page() ) {
+				if ( function_exists('yoast_breadcrumb') ) {
+					yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' );
+				}
+			}
+		?>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 	</header><!-- .entry-header -->

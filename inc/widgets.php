@@ -170,25 +170,27 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 			)
 		);
 
-		register_sidebar(
-			array(
-				'name'          => __( 'Top info left', 'understrap' ),
-				'id'            => 'topinfo-left',
-				'description'   => __( 'Añade informacion en la barra superior izquierdo', 'understrap' ),
-				'before_widget' => '<div id="%1$s" class="topinfo-widget %2$s">',
-				'after_widget'  => '</div><!-- .footer-widget -->',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
+		
 
 		register_sidebar(
 			array(
 				'name'          => __( 'Top info right', 'understrap' ),
 				'id'            => 'topinfo-right',
-				'description'   => __( 'Añade informacion en la barra superior derecha', 'understrap' ),
-				'before_widget' => '<div id="%1$s" class="topinfo-widget %2$s dynamic-classes">',
-				'after_widget'  => '</div><!-- .footer-widget -->',
+				'description'   => __( 'Añade información en la barra de menu derecha', 'understrap' ),
+				'before_widget' => '',
+				'after_widget'  => '',
+				'before_title'  => '',
+				'after_title'   => '',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'name'          => __( 'Tienda Sidebar', 'understrap' ),
+				'id'            => 'tienda-sidebar',
+				'description'   => __( 'Tienda sidebar widget area', 'understrap' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 			)

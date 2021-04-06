@@ -29,14 +29,20 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 ?>
 
+<div class="alert alert-info" role="alert">
+  Realiza tu pedido
+</div>
+
+
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-		<div class="row" id="customer_details">
-			<div class="col-12 col-sm-7">
+
+		<div class="row mb-3-" id="customer_details">
+			<div class="col-12 col-sm-7 ">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 			</div>
 
@@ -46,7 +52,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		</div>
 
 		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
-
+<hr class="my-3">
 	<?php endif; ?>
 
 	<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>

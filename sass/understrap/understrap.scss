@@ -1,11 +1,15 @@
 // Some basic padding for all wrappers
 .wrapper {
 	padding: $grid-gutter-width 0;
-	&#page-wrapper {
-		padding: 0;
-	}
 }
 
+#page-wrapper.wrapper {
+	padding-bottom: 0;
+}
+
+#wrapper-footer.wrapper {
+	padding: $grid-gutter-width 0;
+}
 // Reset hero wrapper padding to 0
 #wrapper-hero {
 	padding: 0px !important;

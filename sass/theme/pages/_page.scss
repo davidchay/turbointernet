@@ -1,0 +1,21 @@
+body.page {
+    background-color: $gray-100;
+
+    &.elementor-page {
+        background-color: $white;
+    }
+    .entry-title {
+		
+		margin-bottom: 1em;
+    	border-bottom: 1px solid #e9ecef;
+    }
+    
+    &.page-template-empty {
+        .wrapper {
+            padding: 0;
+        }
+            
+    }
+}
+
+

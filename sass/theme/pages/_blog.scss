@@ -3,9 +3,14 @@ estilos para
  -blog
  -archive
  -author
+ -single
 */
 
-.blog, .archive, .search, .group-blog, .single {
+body.blog, 
+body.archive, 
+body.search, 
+body.group-blog, 
+body.single {
     background-color: $gray-100;
 
     .page-title {

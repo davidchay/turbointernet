@@ -19,13 +19,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+$tel = get_theme_mod( 'understrap_whatsapp_tel' );
+$cta = get_theme_mod( 'understrap_whatsapp_cta' );
+$msg = get_theme_mod( 'understrap_whatsapp_msg' );
 global $product;
 
 echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	'woocommerce_loop_add_to_cart_link',
 	sprintf(
-		'<div class="add-to-cart-container"><a href="%s" data-quantity="%s" class="%s product_type_%s single_add_to_cart_button btn btn-primary -btn-block %s" %s>%s</a></div>',
+		'<div class="add-to-cart-container"><a href="%s" data-quantity="%s" class="%s product_type_%s single_add_to_cart_button btn btn-primary btn-block %s" %s>%s</a></div>',
 		esc_url( $product->add_to_cart_url() ),
 		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
 		$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
@@ -37,3 +39,9 @@ echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEsc
 	$product,
 	$args
 );
+echo "
+<div class='text-center my-2'>
+	".do_shortcode( '[btn_whatsapp  cta="'.$cta.'" tel="'.$tel.'" msg="'.$msg.'" class="d-block"]' )."
+</div>
+";
+
